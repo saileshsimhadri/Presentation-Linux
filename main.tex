@@ -1,56 +1,20 @@
 \documentclass{beamer}
 
+
 % Get rid of the navigation bar at the bottom
 \beamertemplatenavigationsymbolsempty
 
 \usetheme{Frankfurt}
 
-\title{Presentation Title}
+\title{UPE Linux Introduction}
 
-% A subtitle is optional and this may be deleted
-\subtitle{Optional Subtitle}
+\author{Drew Monroe, Sailesh Simhadri, Joseph Sweeney, Soumya Kundu}
 
-\author{F.~Author\inst{1} \and S.~Another\inst{2}}
-% - Give the names in the same order as the appear in the paper.
-% - Use the \inst{?} command only if the authors have different
-%   affiliation.
+\institute[Upsilon Pi Epsilon - University of Connecticut]
 
-\institute[Universities of Somewhere and Elsewhere] % (optional, but mostly needed)
-{
-  \inst{1}%
-  Department of Computer Science\\
-  University of Somewhere
-  \and
-  \inst{2}%
-  Department of Theoretical Philosophy\\
-  University of Elsewhere}
-% - Use the \inst command only if there are several affiliations.
-% - Keep it simple, no one is interested in your street address.
+\date{\today}
 
-\date{Conference Name, 2013}
-% - Either use conference name or its abbreviation.
-% - Not really informative to the audience, more for people (including
-%   yourself) who are reading the slides online
-
-\subject{Theoretical Computer Science}
-% This is only inserted into the PDF information catalog. Can be left
-% out.
-
-% If you have a file called "university-logo-filename.xxx", where xxx
-% is a graphic format that can be processed by latex or pdflatex,
-% resp., then you can add a logo as follows:
-
-% \pgfdeclareimage[height=0.5cm]{university-logo}{university-logo-filename}
-% \logo{\pgfuseimage{university-logo}}
-
-% Delete this, if you do not want the table of contents to pop up at
-% the beginning of each subsection:
-\AtBeginSubsection[]
-{
-  \begin{frame}<beamer>{Outline}
-    \tableofcontents[currentsection,currentsubsection]
-  \end{frame}
-}
+\subject{Linux}
 
 % Let's get started
 \begin{document}
@@ -63,6 +27,8 @@
   \tableofcontents
   % You might wish to add the option [pausesections]
 \end{frame}
+
+%% Leaving this slide in as a reference, it will be removed later
 
 % Section and subsections will appear in the presentation overview
 % and table of contents.
@@ -81,89 +47,82 @@
   \end{itemize}
 \end{frame}
 
-\subsection{Second Subsection}
+\section{Installing Programs}
 
-% You can reveal the parts of a slide one at a time
-% with the \pause command:
-\begin{frame}{Second Slide Title}
+\subsection{Package Managers}
+
+\begin{frame}{Package Managers}
+    \begin{itemize}
+        \item An ``app store'' for Linux
+        \item Automate the process of managing programs
+        \item Eliminate the need for manual installation
+        \item Different distributions use different package managers (Ubuntu's is called apt)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Package Managers}
   \begin{itemize}
-  \item {
-    First item.
-    \pause % The slide will pause after showing the first item
-  }
-  \item {
-    Second item.
-  }
-  % You can also specify when the content should appear
-  % by using <n->:
-  \item<3-> {
-    Third item.
-  }
-  \item<4-> {
-    Fourth item.
-  }
-  % or you can use the \uncover command to reveal general
-  % content (not just \items):
-  \item<5-> {
-    Fifth item. \uncover<6->{Extra text in the fifth item.}
-  }
+      \item The package manager can do many different things: install, update, remove
+      \item These packages that get installed come from repositories (servers that store the packages)
+      \item These repositories can become outdated and need to be updated
+      \item sudo apt update
   \end{itemize}
 \end{frame}
 
-\section{Second Main Section}
-
-\subsection{Another Subsection}
-
-\begin{frame}{Blocks}
-\begin{block}{Block Title}
-You can also highlight sections of your presentation in a block, with it's own title
-\end{block}
-\begin{theorem}
-There are separate environments for theorems, examples, definitions and proofs.
-\end{theorem}
-\begin{example}
-Here is an example of an example block.
-\end{example}
+\begin{frame}{Package Managers - Usage}
+    \begin{itemize}
+        \item Installation install command
+            \begin{itemize}
+                \item sudo apt install *package name*
+            \end{itemize}
+        \item Upgrade command
+            \begin{itemize}
+                \item sudo apt upgrade
+            \end{itemize}
+        \item Remove command
+            \begin{itemize}
+                \item sudo apt remove *package name*
+            \end{itemize}
+    \end{itemize}
 \end{frame}
 
 % Placing a * after \section means it will not show in the
 % outline or table of contents.
-\section*{Summary}
+\section{Miscellaneous}
 
-\begin{frame}{Summary}
-  \begin{itemize}
-  \item
-    The \alert{first main message} of your talk in one or two lines.
-  \item
-    The \alert{second main message} of your talk in one or two lines.
-  \item
-    Perhaps a \alert{third message}, but not more than that.
-  \end{itemize}
+\subsection{Where do I find files?}
 
-  \begin{itemize}
-  \item
-    Outlook
+\begin{frame}{Where to find files}
     \begin{itemize}
-    \item
-      Something you haven't solved.
-    \item
-      Something else you haven't solved.
+        \item \url{bin} - Binary files
+        \item \url{boot} - Files required to boot the system
+        \item \url{dev} - Device files, disk partitions, standard in and out
+        \item \url{etc} - System configuration files
+        \item \url{home} - Users home directories
+        \item \url{lib} - Libraries and modules, including kernel modules
+        \item \url{lib64} - 64 bit versions of modules
+        \item \url{opt} -Traditionally used for third party add-ons
+        \item \url{proc} - Runtime system information, ``files'' about the system
+        \item \url{root} - The home directory for root
+        \item \url{sbin} - Similar to \url{bin}, but root executables
+        \item \url{tmp} - Temporary files
+        \item \url{usr} - User programs, documentation, static data; originally like \url{home}
+        \item \url{var} - Variable data, logs, application data
     \end{itemize}
-  \end{itemize}
 \end{frame}
 
 
 
-% All of the following is optional and typically not needed.
+% All of the following is optional and typically not needed. 
 \appendix
 \section<presentation>*{\appendixname}
 \subsection<presentation>*{For Further Reading}
 
 \begin{frame}[allowframebreaks]
   \frametitle<presentation>{For Further Reading}
-
+    
   \begin{thebibliography}{10}
-
+    
   \beamertemplatebookbibitems
   % Start with overview books.
 
@@ -171,10 +130,10 @@ Here is an example of an example block.
     A.~Author.
     \newblock {\em Handbook of Everything}.
     \newblock Some Press, 1990.
-
-
+ 
+    
   \beamertemplatearticlebibitems
-  % Followed by interesting articles. Keep the list short.
+  % Followed by interesting articles. Keep the list short. 
 
   \bibitem{Someone2000}
     S.~Someone.
@@ -185,6 +144,3 @@ Here is an example of an example block.
 \end{frame}
 
 \end{document}
-
-
-
